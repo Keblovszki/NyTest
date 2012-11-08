@@ -49,6 +49,7 @@ public class GameImpl implements Game {
 	}
 
 	public void endOfTurn() {
+		return null; 
 	}
 
 	public void changeWorkForceFocusInCityAt(Position p, String balance) {
