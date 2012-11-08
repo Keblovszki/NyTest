@@ -46,9 +46,9 @@ public class TestAlphaCiv {
 	}
 
 	@Test
-	public void RedShouldWinInYear3000() {
-		
-		
-		
+	public void RedShouldWinInYear3000BC() {
+		assertEquals("The year is 3000 BC", 3000, game.getAge());
+		assertEquals("The winner is red", Player.RED, game.getWinner());
+		// assertNull("No winner yet", game.getWinner());
 	}
 }
