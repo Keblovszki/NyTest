@@ -20,5 +20,5 @@ Responsibilities:
    commercial use, see http://www.baerbak.com/
 */
 public enum Player {
-  RED, BLUE
+  RED, BLUE, YELLOW, GREEN
 }

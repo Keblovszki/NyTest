@@ -51,4 +51,23 @@ public class TestAlphaCiv {
 		assertEquals("The winner is red", Player.RED, game.getWinner());
 		// assertNull("No winner yet", game.getWinner());
 	}
+	
+	@Test
+	public void shouldHaveBlueCityAt4_1() {
+		City c = game.getCityAt(new Position(4, 1));
+		assertNotNull("There should be a city at (4,1)", c);
+		Player p = c.getOwner();
+		assertEquals("City at (4,1) should be owned by red", Player.BLUE, p);
+	}
+	@Test
+	public void redPlayerStarts() {
+		assertEquals("First turn, year 4000 BC", 4000, game.getAge());
+		assertEquals("First player is red", Player.RED, game.getPlayerInTurn());
+	}
+	@Test
+	public void redCityPopulationIs1() {
+		City c = game.getCityAt(new Position(1, 1));
+		assertEquals("Cities has size 1", 1, c.getSize());
+	}
+	
 }
