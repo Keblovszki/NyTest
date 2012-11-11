@@ -1,45 +1,54 @@
 package hotciv.standard;
 
+import hotciv.framework.GameConstants;
 import hotciv.framework.Position;
 import hotciv.framework.Tile;
 
 public class TileImpl implements Tile {
-	private String ocean;
-	private String hill;
-	private String mountain;
-	private String plain;
+	
+	//Constructor
+	public TileImpl(){
+		
+	}
 	
 	@Override
 	public Position getPosition() {
-		if(getTypeString() == ocean){
+		
+		/*
+		if(getTypeString() == GameConstants.OCEANS){
 			return new Position(1, 0);
-		}
-		if(getTypeString() == hill){
+		} 
+		if(getTypeString() == GameConstants.HILLS){
 			return new Position(0, 1);
 		}
-		if(getTypeString() == mountain){
+		if(getTypeString() == GameConstants.MOUNTAINS){
 			return new Position(0, 1);
 		}
 		else{
 			return null;
 		}
+		*/
+		return null;
 		
 	}
 
 	@Override
 	public String getTypeString() {		
+		/*
 		if(getPosition().equals(new Position(1, 0))){
-			return ocean;
+			return GameConstants.OCEANS;
 		}
 		if(getPosition().equals(new Position(0, 1))){
-			return hill;
+			return GameConstants.HILLS;
 		}
 		if(getPosition().equals(new Position(2, 2))){
-			return mountain;
+			return GameConstants.MOUNTAINS;
 		}
 		else{
-			return plain;
+			return GameConstants.PLAINS;
 		}
+		*/
+		return GameConstants.OCEANS;
 	}
 
 }

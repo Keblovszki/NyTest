@@ -4,6 +4,10 @@ import hotciv.framework.*;
 
 public class CityImpl implements City {
 	
+	//Constructor
+	public CityImpl(){
+		
+	}
 	
 	@Override
 	public Player getOwner() {

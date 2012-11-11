@@ -18,6 +18,11 @@ public class GameImpl implements Game {
 	private Player playerInTurn = Player.RED;
 	private int age = -4000;
 	
+	//Constructor
+	public GameImpl(){
+		
+	}
+	
 	public Tile getTileAt(Position p) {
 		return null;
 	}
@@ -61,16 +66,18 @@ public class GameImpl implements Game {
 		else{
 			age += 100;
 			playerInTurn = Player.RED;
-		}
-		
+		}	
 	}
 
 	public void changeWorkForceFocusInCityAt(Position p, String balance) {
+		
 	}
 
 	public void changeProductionInCityAt(Position p, String unitType) {
+		
 	}
 
 	public void performUnitActionAt(Position p) {
+		
 	}
 }

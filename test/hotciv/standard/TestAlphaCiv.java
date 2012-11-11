@@ -104,8 +104,61 @@ public class TestAlphaCiv {
 	}
 	
 	@Test
+	//Firstly it is red in turn, afterward it is blue in turn and round we go ==> exactly two players red and blue
+	public void exactlyTwoPlayersRedAndBlue(){
+		//switch turn for the first ten rounds...
+		for(int i = 0; i < 10; i++){
+		game.endOfTurn();
+		assertEquals("The player in turn should be blue", Player.BLUE, game.getPlayerInTurn() );
+		game.endOfTurn();
+		assertEquals("The player in turn should be red", Player.RED, game.getPlayerInTurn() );
+		}
+	}
+	
+	@Test
 	public void redCityPopulationIs1() {
 		City c = game.getCityAt(new Position(1, 1));
 		assertEquals("Cities has size 1", 1, c.getSize());
 	}
+	
+	//Det er de tre nedenstående som giver error og jeg ved ikke lige hvorfor - synes det burde se således ud..!
+	@Test
+	public void tileAt1_0ShouldBeAnOcean(){
+		Tile t = game.getTileAt(new Position(1, 0));
+		assertEquals("The tile at position (1, 0) should be an ocean", GameConstants.OCEANS, t.getTypeString() );
+	}
+	
+	@Test
+	public void tileAt0_1ShouldBeAHill(){
+		Tile t = game.getTileAt(new Position(0, 1));
+		assertEquals("The tile at position (0, 1) should be a hill", GameConstants.HILLS, t.getTypeString() );
+	}
+	
+	@Test
+	public void tileAt2_2ShouldBeAMountain(){
+		Tile t = game.getTileAt(new Position(2, 2));
+		assertEquals("The tile at position (2, 2) should be a mountain", GameConstants.MOUNTAINS, t.getTypeString() );
+	}
+	
+	/* Synes måske bare lige vi kan lære af den her fejl :) population og production er ikke det samme!!!!
+	@Test
+	public void cityAt1_1Gain6productionEachRound(){
+		City c = game.getCityAt(new Position(1, 1));
+		assertEquals("The city at position (1, 1) should have production 1", 1, c.getSize() );
+		
+		//runs the first round
+		for(int i = 0; i < 2; i++){
+			game.endOfTurn();
+		}
+		assertEquals("The city at position (1, 1) should have production 7", 7, c.getSize() );
+		
+		//runs three rounds more
+		for(int i = 0; i < 6; i++){
+			game.endOfTurn();
+		}
+		assertEquals("The city at position (1, 1) should have production 25", 25, c.getSize() );
+	}
+	*/
+	
+	
 }
