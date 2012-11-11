@@ -80,6 +80,27 @@ public class TestAlphaCiv {
 	@Test
 	public void advanceYearWith100PrRound(){
 		
+		//runs the first round
+		for(int i = 0; i < 2; i++){
+			game.endOfTurn();
+		}
+		
+		int age = game.getAge();
+		assertEquals("The year should be -3900 after the first round", -3900, age);
+		
+		//runs the second round
+		for(int i = 0; i < 2; i++){
+			game.endOfTurn();
+		}
+		age = game.getAge();
+		assertEquals("The year should be -3800 after the second round", -3800, age);
+		
+		//runs the next five rounds
+		for(int i = 0; i < 10; i++){
+			game.endOfTurn();
+		}
+		age = game.getAge();
+		assertEquals("There year should be -3300 after the seventh round", -3300, age);
 	}
 	
 	@Test
