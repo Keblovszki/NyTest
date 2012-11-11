@@ -3,7 +3,8 @@ package hotciv.standard;
 import hotciv.framework.*;
 
 public class CityImpl implements City {
-
+	
+	
 	@Override
 	public Player getOwner() {
 		return Player.RED;

@@ -1,4 +1,4 @@
-package hotciv.framework;
+ package hotciv.framework;
 
 /** Tile represents a single territory tile of a given type.
 
@@ -32,5 +32,5 @@ public interface Tile {
    * engine, as they correspond to named image files.
    * @return the type type as string
    */
-  public String getTypeString(); 
+  public String getTypeString();
 }

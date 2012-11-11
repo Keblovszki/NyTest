@@ -28,26 +28,31 @@ public class TestAlphaCiv {
 	@Test
 	public void shouldHaveRedCityAt1_1() {
 		City c = game.getCityAt(new Position(1, 1));
-		assertNotNull("There should be a city at (1,1)", c);
+		assertNotNull("There should be a city at (1, 1)", c);
 		Player p = c.getOwner();
-		assertEquals("City at (1,1) should be owned by red", Player.RED, p);
+		assertEquals("City at (1, 1) should be owned by red", Player.RED, p);
 	}
 
 	@Test
 	public void NoCityAt2_2() {
 		City c = game.getCityAt(new Position(2, 2));
-		assertNull("There shouldn't be a city at (2,2)", c);
+		assertNull("There shouldn't be a city at (2, 2)", c);
 	}
 
 	@Test
 	public void NoCityAt3_2() {
 		City c = game.getCityAt(new Position(3, 2));
-		assertNull("There shouldn't be a city at (3,2)", c);
+		assertNull("There shouldn't be a city at (3, 2)", c);
 	}
 
 	@Test
 	public void RedShouldWinInYear3000BC() {
-		assertEquals("The year is 3000 BC", 3000, game.getAge());
+		//runs the first ten rounds
+		for(int i = 0; i < 20; i++){
+			game.endOfTurn();
+		}
+		int age = game.getAge();
+		assertEquals("The year is 3000 BC", -3000, age);
 		assertEquals("The winner is red", Player.RED, game.getWinner());
 		// assertNull("No winner yet", game.getWinner());
 	}
@@ -55,19 +60,31 @@ public class TestAlphaCiv {
 	@Test
 	public void shouldHaveBlueCityAt4_1() {
 		City c = game.getCityAt(new Position(4, 1));
-		assertNotNull("There should be a city at (4,1)", c);
+		assertNotNull("There should be a city at (4, 1)", c);
 		Player p = c.getOwner();
-		assertEquals("City at (4,1) should be owned by red", Player.BLUE, p);
+		assertEquals("City at (4, 1) should be owned by red", Player.BLUE, p);
 	}
+	
 	@Test
 	public void redPlayerStarts() {
-		assertEquals("First turn, year 4000 BC", 4000, game.getAge());
-		assertEquals("First player is red", Player.RED, game.getPlayerInTurn());
+		Player p = game.getPlayerInTurn();
+		assertEquals("Red is the first player in turn", Player.RED, p);
 	}
+	
+	@Test
+	public void gameShouldStartIn4000BC(){
+		int age = game.getAge();
+		assertEquals("At game start, age should be 4000 BC", -4000, age);
+	}
+	
+	@Test
+	public void advanceYearWith100PrRound(){
+		
+	}
+	
 	@Test
 	public void redCityPopulationIs1() {
 		City c = game.getCityAt(new Position(1, 1));
 		assertEquals("Cities has size 1", 1, c.getSize());
 	}
-	
 }
