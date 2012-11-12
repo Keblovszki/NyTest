@@ -125,26 +125,47 @@ public class TestAlphaCiv {
 	@Test
 	public void tileAt1_0ShouldBeAnOcean(){
 		Tile t = game.getTileAt(new Position(1, 0));
+		assertNotNull("t should not be null", t);
 		assertEquals("The tile at position (1, 0) should be an ocean", GameConstants.OCEANS, t.getTypeString() );
+		assertEquals("The position shuold be (1, 0)", new Position (1, 0), t.getPosition() );
 	}
 	
 	@Test
 	public void tileAt0_1ShouldBeAHill(){
 		Tile t = game.getTileAt(new Position(0, 1));
+		assertNotNull("t should not be null", t);
 		assertEquals("The tile at position (0, 1) should be a hill", GameConstants.HILLS, t.getTypeString() );
+		assertEquals("The position shuold be (0, 1)", new Position (0, 1), t.getPosition() );
 	}
 	
 	@Test
 	public void tileAt2_2ShouldBeAMountain(){
 		Tile t = game.getTileAt(new Position(2, 2));
+		assertNotNull("t should not be null", t);
 		assertEquals("The tile at position (2, 2) should be a mountain", GameConstants.MOUNTAINS, t.getTypeString() );
+		assertEquals("The position shuold be (2, 2)", new Position (2, 2), t.getPosition() );
 	}
 	
-	/* Synes måske bare lige vi kan lære af den her fejl :) population og production er ikke det samme!!!!
+	@Test
+	public void restOfTheTilesArePlains(){
+		Tile t = game.getTileAt(new Position (4, 4));
+		assertNotNull("t should not be null", t);
+		assertEquals("The tile at position (4, 4) should be a mountain", GameConstants.PLAINS, t.getTypeString() );
+		assertEquals("The position shuold be (4, 4)", new Position (4, 4), t.getPosition() );
+	}
+	
+	@Test
+	public void restOfTheTilesArePlains1(){
+		Tile t = game.getTileAt(new Position (12, 13));
+		assertNotNull("t should not be null", t);
+		assertEquals("The tile at position (12, 13) should be a mountain", GameConstants.PLAINS, t.getTypeString() );
+		assertEquals("The position shuold be (12, 13)", new Position (12, 13), t.getPosition() );
+	}
+	
 	@Test
 	public void cityAt1_1Gain6productionEachRound(){
 		City c = game.getCityAt(new Position(1, 1));
-		assertEquals("The city at position (1, 1) should have production 1", 1, c.getSize() );
+		assertEquals("The city at position (1, 1) should have production 0", 0, c.getProduction());
 		
 		//runs the first round
 		for(int i = 0; i < 2; i++){
@@ -158,7 +179,5 @@ public class TestAlphaCiv {
 		}
 		assertEquals("The city at position (1, 1) should have production 25", 25, c.getSize() );
 	}
-	*/
-	
 	
 }

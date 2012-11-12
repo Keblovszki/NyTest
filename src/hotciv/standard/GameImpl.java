@@ -17,6 +17,7 @@ import hotciv.framework.*;
 public class GameImpl implements Game {
 	private Player playerInTurn = Player.RED;
 	private int age = -4000;
+	private int production = 0; 
 	
 	//Constructor
 	public GameImpl(){
@@ -24,7 +25,18 @@ public class GameImpl implements Game {
 	}
 	
 	public Tile getTileAt(Position p) {
-		return null;
+		if(p.equals(new Position(1, 0))){
+			return new TileImpl(new Position (1, 0), GameConstants.OCEANS);
+		}
+		if(p.equals(new Position(0, 1))){
+			return new TileImpl(new Position (0, 1), GameConstants.HILLS);
+		}
+		if(p.equals(new Position(2, 2))){
+			return new TileImpl(new Position (2, 2), GameConstants.MOUNTAINS);
+		}
+		else{
+			return new TileImpl(p , GameConstants.PLAINS);
+		}
 	}
 
 	public Unit getUnitAt(Position p) {
@@ -33,10 +45,10 @@ public class GameImpl implements Game {
 
 	public City getCityAt(Position p) {
 		if (p.equals(new Position(1, 1))) {
-			return new CityImpl();
+			return new CityImpl(Player.RED);
 		} 
 		if (p.equals(new Position(4, 1))) {
-			return new CityImpl();
+			return new CityImpl(Player.BLUE);
 		} 
 		else {
 			return null;
@@ -74,7 +86,7 @@ public class GameImpl implements Game {
 	}
 
 	public void changeProductionInCityAt(Position p, String unitType) {
-		
+		production += 6;
 	}
 
 	public void performUnitActionAt(Position p) {

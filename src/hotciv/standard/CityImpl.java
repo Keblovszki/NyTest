@@ -3,15 +3,16 @@ package hotciv.standard;
 import hotciv.framework.*;
 
 public class CityImpl implements City {
+	private Player owner;
 	
 	//Constructor
-	public CityImpl(){
-		
+	public CityImpl(Player p){
+		owner = p;
 	}
 	
 	@Override
 	public Player getOwner() {
-		return Player.RED;
+		return owner;
 	}
 
 	@Override
@@ -23,7 +24,7 @@ public class CityImpl implements City {
 	public String getProduction() {
 		return null;
 	}
-
+	
 	@Override
 	public String getWorkforceFocus() {
 		return null;
