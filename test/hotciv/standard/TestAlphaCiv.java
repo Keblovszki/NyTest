@@ -207,7 +207,7 @@ public class TestAlphaCiv {
 	}
 	
 	@Test
-	public void BlueLegionAt3_2(){
+	public void blueLegionAt3_2(){
 		Unit u = game.getUnitAt(new Position (3, 2));
 		assertNotNull("u should not be null", u);
 		assertEquals("The tile at position (3, 2) should be a archer", GameConstants.LEGION, u.getTypeString() );
@@ -220,6 +220,12 @@ public class TestAlphaCiv {
 		assertNotNull("u should not be null", u);
 		assertEquals("The tile at position (4, 3) should be a archer", GameConstants.SETTLER, u.getTypeString() );
 		assertEquals("The player should be red", Player.RED, u.getOwner() );
+	}
+	
+	@Test 
+	public void cityAt1_1ProducesNothing(){
+		City c = game.getCityAt(new Position (1,1));
+		assertNull("The City at (1,1) produces nothing", c.getProduction() );
 	}
 	
 }

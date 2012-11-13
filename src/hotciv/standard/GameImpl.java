@@ -31,6 +31,7 @@ public class GameImpl implements Game {
 	public GameImpl(){
 		mapCity.put(new Position(1, 1), new CityImpl(Player.RED));
 		mapCity.put(new Position(4, 1), new CityImpl(Player.BLUE));	
+		
 	}
 	
 	public Tile getTileAt(Position p) {
@@ -107,6 +108,7 @@ public class GameImpl implements Game {
 	}
 
 	public void changeProductionInCityAt(Position p, String unitType) {
+		mapCity.get(p).setProduction(unitType);
 		
 	}
 

@@ -5,6 +5,7 @@ import hotciv.framework.*;
 public class CityImpl implements City {
 	private Player owner;
 	private int production;
+	private String unitProduction = null;
 	
 	//Constructor
 	public CityImpl(Player p){
@@ -24,7 +25,7 @@ public class CityImpl implements City {
 
 	@Override
 	public String getProduction() {
-		return null;
+		return unitProduction;
 	}
 	
 	@Override
@@ -42,5 +43,7 @@ public class CityImpl implements City {
 		return production;
 	}
 	
-	
+	public void setProduction(String unitType){
+		unitProduction = unitType;
+	}
 }
