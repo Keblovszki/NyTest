@@ -150,7 +150,7 @@ public class TestAlphaCiv {
 	public void restOfTheTilesArePlains(){
 		Tile t = game.getTileAt(new Position (4, 4));
 		assertNotNull("t should not be null", t);
-		assertEquals("The tile at position (4, 4) should be a mountain", GameConstants.PLAINS, t.getTypeString() );
+		assertEquals("The tile at position (4, 4) should be plains", GameConstants.PLAINS, t.getTypeString() );
 		assertEquals("The position shuold be (4, 4)", new Position (4, 4), t.getPosition() );
 	}
 	
@@ -158,7 +158,7 @@ public class TestAlphaCiv {
 	public void restOfTheTilesArePlains1(){
 		Tile t = game.getTileAt(new Position (12, 13));
 		assertNotNull("t should not be null", t);
-		assertEquals("The tile at position (12, 13) should be a mountain", GameConstants.PLAINS, t.getTypeString() );
+		assertEquals("The tile at position (12, 13) should be plains", GameConstants.PLAINS, t.getTypeString() );
 		assertEquals("The position shuold be (12, 13)", new Position (12, 13), t.getPosition() );
 	}
 	
@@ -178,6 +178,13 @@ public class TestAlphaCiv {
 			game.endOfTurn();
 		}
 		assertEquals("The city at position (1, 1) should have production 25", 25, c.getSize() );
+	}
+	
+	@Test
+	public void redArcherArcherAt2_0(){
+		Unit u = game.getUnitAt(new Position (2, 0));
+		assertNotNull("u should not be null", u);
+		assertEquals("The tile at position (2, 0) should be a archer", GameConstants.ARCHER, u.getTypeString() );
 	}
 	
 }
