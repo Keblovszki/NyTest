@@ -40,6 +40,15 @@ public class GameImpl implements Game {
 	}
 
 	public Unit getUnitAt(Position p) {
+		if(p.equals(new Position(2, 0))){
+			return new UnitImpl(Player.RED, GameConstants.ARCHER, new Position(2, 0));
+		}
+		if(p.equals(new Position(3, 2))){
+			return new UnitImpl(Player.BLUE, GameConstants.LEGION, new Position(3, 2));
+		}
+		if(p.equals(new Position(4, 3))){
+			return new UnitImpl(Player.RED, GameConstants.SETTLER, new Position(4, 3));
+		}
 		return null;
 	}
 

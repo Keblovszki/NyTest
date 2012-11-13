@@ -7,13 +7,16 @@ public class UnitImpl implements Unit{
 	private Position position;
 	
 	//Constructor
-	public UnitImpl(Player p, type t, Position po){
+	public UnitImpl(Player p, String t, Position po){
+		owner = p;
+		type = t;
+		position = po;
 		
 	}
 	
 	@Override
 	public String getTypeString() {
-		return null;
+		return type;
 	}
 
 	@Override
