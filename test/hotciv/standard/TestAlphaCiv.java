@@ -165,19 +165,19 @@ public class TestAlphaCiv {
 	@Test
 	public void cityAt1_1Gain6productionEachRound(){
 		City c = game.getCityAt(new Position(1, 1));
-		assertEquals("The city at position (1, 1) should have production 0", 0, c.getProduction());
+		assertEquals("The city at position (1, 1) should have production 0", 0, c.getProductionSum() );
 		
 		//runs the first round
 		for(int i = 0; i < 2; i++){
 			game.endOfTurn();
 		}
-		assertEquals("The city at position (1, 1) should have production 7", 7, c.getSize() );
+		assertEquals("The city at position (1, 1) should have production 6", 6, c.getProductionSum() );
 		
 		//runs three rounds more
 		for(int i = 0; i < 6; i++){
 			game.endOfTurn();
 		}
-		assertEquals("The city at position (1, 1) should have production 25", 25, c.getSize() );
+		assertEquals("The city at position (1, 1) should have production 24", 24, c.getProductionSum() );
 	}
 	
 	@Test

@@ -42,5 +42,12 @@ public interface City {
    * for valid return values.
    */
   public String getWorkforceFocus();
-
+  
+  /** Do the production sum of each round 
+   * accumulate the production sum.
+   */
+  public void doProductionSum();
+  
+  /* @return the production in the city */
+  public int getProductionSum();
 }

@@ -17,7 +17,6 @@ import hotciv.framework.*;
 public class GameImpl implements Game {
 	private Player playerInTurn = Player.RED;
 	private int age = -4000;
-	private int production = 0; 
 	
 	//Constructor
 	public GameImpl(){
@@ -54,10 +53,10 @@ public class GameImpl implements Game {
 
 	public City getCityAt(Position p) {
 		if (p.equals(new Position(1, 1))) {
-			return new CityImpl(Player.RED);
+			return new CityImpl(Player.RED, new Position(1, 1));
 		} 
 		if (p.equals(new Position(4, 1))) {
-			return new CityImpl(Player.BLUE);
+			return new CityImpl(Player.BLUE, new Position(4, 1));
 		} 
 		else {
 			return null;
@@ -81,21 +80,23 @@ public class GameImpl implements Game {
 	}
 
 	public void endOfTurn() {
+		City c = new CityImpl(Player.RED, new Position(1, 1));
 		if(playerInTurn == Player.RED){
 			playerInTurn = Player.BLUE;
 		}
 		else{
 			age += 100;
 			playerInTurn = Player.RED;
-		}	
-	}
+			c.doProductionSum();	
+		}
+	}	
 
 	public void changeWorkForceFocusInCityAt(Position p, String balance) {
 		
 	}
 
 	public void changeProductionInCityAt(Position p, String unitType) {
-		production += 6;
+		
 	}
 
 	public void performUnitActionAt(Position p) {
