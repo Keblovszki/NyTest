@@ -54,16 +54,7 @@ public class GameImpl implements Game {
 	}
 
 	public Unit getUnitAt(Position p) {
-		if(p.equals(new Position(2, 0))){
-			return mapUnit.get(p);
-		}
-		if(p.equals(new Position(3, 2))){
-			return mapUnit.get(p);
-		}
-		if(p.equals(new Position(4, 3))){
-			return mapUnit.get(p);
-		}
-		return null;
+		return mapUnit.get(p);
 	}
 
 	public City getCityAt(Position p) {
@@ -92,6 +83,7 @@ public class GameImpl implements Game {
 
 	public boolean moveUnit(Position from, Position to) {
 		if(mapUnit.get(to) == null ){
+			
 			mapUnit.put(to, mapUnit.get(from) );
 			mapUnit.remove(from);
 			return true;
