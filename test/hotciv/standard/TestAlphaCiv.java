@@ -222,10 +222,20 @@ public class TestAlphaCiv {
 		assertEquals("The player should be red", Player.RED, u.getOwner() );
 	}
 	
+	//We want that the cities production type should be null at the start
 	@Test 
 	public void cityAt1_1ProducesNothing(){
 		City c = game.getCityAt(new Position (1,1));
 		assertNull("The City at (1,1) produces nothing", c.getProduction() );
+	}
+	
+	@Test
+	public void moveAUnit(){
+		Unit u = game.getUnitAt(new Position(4, 3) );
+		assertNotNull("u should not be null", u);
+		game.moveUnit(new Position(4, 3), new Position(4, 4) );
+		assertNull("u should be null", u);
+		assertEquals("The settler should be at position (4, 4)", u, game.getUnitAt(new Position(4, 4)) );
 	}
 	
 }

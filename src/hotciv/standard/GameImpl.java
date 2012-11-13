@@ -26,12 +26,16 @@ public class GameImpl implements Game {
 	private Player playerInTurn = Player.RED;
 	private int age = -4000;
 	HashMap<Position, CityImpl> mapCity = new HashMap<Position, CityImpl>();
+	HashMap<Position, UnitImpl> mapUnit = new HashMap<Position, UnitImpl>();
 	
 	//Constructor
 	public GameImpl(){
 		mapCity.put(new Position(1, 1), new CityImpl(Player.RED));
 		mapCity.put(new Position(4, 1), new CityImpl(Player.BLUE));	
 		
+		mapUnit.put(new Position(2, 0), new UnitImpl(Player.RED, GameConstants.ARCHER) );
+		mapUnit.put(new Position(3, 2), new UnitImpl(Player.BLUE, GameConstants.LEGION) );
+		mapUnit.put(new Position(4, 3), new UnitImpl(Player.RED, GameConstants.SETTLER) );
 	}
 	
 	public Tile getTileAt(Position p) {
@@ -51,13 +55,13 @@ public class GameImpl implements Game {
 
 	public Unit getUnitAt(Position p) {
 		if(p.equals(new Position(2, 0))){
-			return new UnitImpl(Player.RED, GameConstants.ARCHER, new Position(2, 0));
+			return mapUnit.get(p);
 		}
 		if(p.equals(new Position(3, 2))){
-			return new UnitImpl(Player.BLUE, GameConstants.LEGION, new Position(3, 2));
+			return mapUnit.get(p);
 		}
 		if(p.equals(new Position(4, 3))){
-			return new UnitImpl(Player.RED, GameConstants.SETTLER, new Position(4, 3));
+			return mapUnit.get(p);
 		}
 		return null;
 	}
@@ -87,6 +91,11 @@ public class GameImpl implements Game {
 	}
 
 	public boolean moveUnit(Position from, Position to) {
+		if(mapUnit.get(to) == null ){
+			mapUnit.put(to, mapUnit.get(from) );
+			
+			return true;
+		}
 		return false;
 	}
 
