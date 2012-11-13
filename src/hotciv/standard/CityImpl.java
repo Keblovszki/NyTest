@@ -5,13 +5,11 @@ import hotciv.framework.*;
 public class CityImpl implements City {
 	private Player owner;
 	private int production;
-	private Position position;
 	
 	//Constructor
-	public CityImpl(Player p, Position po){
+	public CityImpl(Player p){
 		owner = p;
 		production = 0;
-		position = po;
 	}
 	
 	@Override

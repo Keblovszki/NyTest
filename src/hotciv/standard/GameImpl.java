@@ -1,6 +1,14 @@
 package hotciv.standard;
 
-import hotciv.framework.*;
+import hotciv.framework.City;
+import hotciv.framework.Game;
+import hotciv.framework.GameConstants;
+import hotciv.framework.Player;
+import hotciv.framework.Position;
+import hotciv.framework.Tile;
+import hotciv.framework.Unit;
+
+import java.util.*;
 
 /**
  * Skeleton implementation of HotCiv.
@@ -17,10 +25,12 @@ import hotciv.framework.*;
 public class GameImpl implements Game {
 	private Player playerInTurn = Player.RED;
 	private int age = -4000;
+	HashMap<Position, CityImpl> mapCity = new HashMap<Position, CityImpl>();
 	
 	//Constructor
 	public GameImpl(){
-		
+		mapCity.put(new Position(1, 1), new CityImpl(Player.RED));
+		mapCity.put(new Position(4, 1), new CityImpl(Player.BLUE));	
 	}
 	
 	public Tile getTileAt(Position p) {
@@ -53,10 +63,10 @@ public class GameImpl implements Game {
 
 	public City getCityAt(Position p) {
 		if (p.equals(new Position(1, 1))) {
-			return new CityImpl(Player.RED, new Position(1, 1));
+			return mapCity.get(p);
 		} 
 		if (p.equals(new Position(4, 1))) {
-			return new CityImpl(Player.BLUE, new Position(4, 1));
+			return mapCity.get(p);
 		} 
 		else {
 			return null;
@@ -80,14 +90,14 @@ public class GameImpl implements Game {
 	}
 
 	public void endOfTurn() {
-		City c = new CityImpl(Player.RED, new Position(1, 1));
+		// City c = new CityImpl(Player.RED, new Position(1, 1));
 		if(playerInTurn == Player.RED){
 			playerInTurn = Player.BLUE;
 		}
 		else{
 			age += 100;
 			playerInTurn = Player.RED;
-			c.doProductionSum();	
+			//c.doProductionSum();	
 		}
 	}	
 
