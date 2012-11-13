@@ -93,10 +93,12 @@ public class GameImpl implements Game {
 	public boolean moveUnit(Position from, Position to) {
 		if(mapUnit.get(to) == null ){
 			mapUnit.put(to, mapUnit.get(from) );
-			
+			mapUnit.remove(from);
 			return true;
 		}
-		return false;
+		else {
+			return false;
+		}
 	}
 
 	public void endOfTurn() {

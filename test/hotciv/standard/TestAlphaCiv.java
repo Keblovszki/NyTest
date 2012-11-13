@@ -231,11 +231,13 @@ public class TestAlphaCiv {
 	
 	@Test
 	public void moveAUnit(){
-		Unit u = game.getUnitAt(new Position(4, 3) );
-		assertNotNull("u should not be null", u);
+		Unit u1 = game.getUnitAt(new Position(4, 3) );
+		assertNotNull("u should not be null", u1);
 		game.moveUnit(new Position(4, 3), new Position(4, 4) );
-		assertNull("u should be null", u);
-		assertEquals("The settler should be at position (4, 4)", u, game.getUnitAt(new Position(4, 4)) );
+		Unit u2 = game.getUnitAt(new Position(4, 3));
+		assertNull("un should be null", u2);
+		Unit u3 = game.getUnitAt(new Position(4, 4));
+		assertNotNull("uni should not be null", u3);
 	}
 	
 }
