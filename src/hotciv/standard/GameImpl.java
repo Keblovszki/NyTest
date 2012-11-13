@@ -90,14 +90,15 @@ public class GameImpl implements Game {
 	}
 
 	public void endOfTurn() {
-		// City c = new CityImpl(Player.RED, new Position(1, 1));
 		if(playerInTurn == Player.RED){
 			playerInTurn = Player.BLUE;
 		}
 		else{
 			age += 100;
 			playerInTurn = Player.RED;
-			//c.doProductionSum();	
+			for(CityImpl c : mapCity.values()){
+				c.doProductionSum();
+			}
 		}
 	}	
 
