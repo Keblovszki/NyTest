@@ -2,7 +2,15 @@ package hotciv.standard;
 import hotciv.framework.*;
 
 public class UnitImpl implements Unit{
-
+	private String type;
+	private Player owner;
+	private Position position;
+	
+	//Constructor
+	public UnitImpl(Player p, type t, Position po){
+		
+	}
+	
 	@Override
 	public String getTypeString() {
 		return null;
@@ -10,7 +18,7 @@ public class UnitImpl implements Unit{
 
 	@Override
 	public Player getOwner(){
-		return null;
+		return owner;
 	}	
 	
 	@Override
