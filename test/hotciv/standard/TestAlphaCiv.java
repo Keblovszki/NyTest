@@ -243,4 +243,18 @@ public class TestAlphaCiv {
 		assertNotNull("uni should not be null", u3);
 	}
 	
+	@Test
+	public void attackUnitsAttackerWins(){
+		Unit u1 = game.getUnitAt(new Position (5, 5));
+		assertNotNull("u should not be null", u1);
+		
+		Unit u2 = game.getUnitAt(new Position (5, 6));
+		assertNotNull("u should not be null", u2);
+		
+		game.moveUnit(new Position (5, 5), new Position (5, 6));
+		
+		assertEquals("u1 has won", u1, game.getUnitAt(new Position(5, 6)));
+		
+	}
+	
 }
