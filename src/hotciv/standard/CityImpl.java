@@ -43,6 +43,10 @@ public class CityImpl implements City {
 		return production;
 	}
 	
+	public void setProductionSum(int change){
+		production += change; 
+	}
+	
 	public void setProduction(String unitType){
 		unitProduction = unitType;
 	}
