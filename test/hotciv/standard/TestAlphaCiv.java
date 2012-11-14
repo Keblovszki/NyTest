@@ -254,7 +254,6 @@ public class TestAlphaCiv {
 		game.moveUnit(new Position (5, 5), new Position (5, 6));
 		
 		assertEquals("u1 has won", u1, game.getUnitAt(new Position(5, 6)));
-		
 	}
 	
 }
