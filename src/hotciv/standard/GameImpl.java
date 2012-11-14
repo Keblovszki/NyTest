@@ -58,15 +58,15 @@ public class GameImpl implements Game {
 	}
 
 	public City getCityAt(Position p) {
+		/*
 		if (p.equals(new Position(1, 1))) {
 			return mapCity.get(p);
 		} 
 		if (p.equals(new Position(4, 1))) {
 			return mapCity.get(p);
 		} 
-		else {
-			return null;
-		}
+		*/
+		return mapCity.get(p);
 	}
 
 	public Player getPlayerInTurn() {
@@ -83,7 +83,13 @@ public class GameImpl implements Game {
 
 	public boolean moveUnit(Position from, Position to) {
 		if(mapUnit.get(to) == null ){
-			
+			mapUnit.put(to, mapUnit.get(from) );
+			mapUnit.remove(from);
+			return true;
+		}
+		
+		if(mapUnit.get(to) != null){
+			mapUnit.remove(to);
 			mapUnit.put(to, mapUnit.get(from) );
 			mapUnit.remove(from);
 			return true;
@@ -117,5 +123,12 @@ public class GameImpl implements Game {
 
 	public void performUnitActionAt(Position p) {
 		
+	}
+	
+	public void createProductionInCityAt(Position p){
+		if(mapCity.get(p) != null){
+			CityImpl c = mapCity.get(p);
+			//if(c.getProduction() = "SETTLER"){}
+		}
 	}
 }
