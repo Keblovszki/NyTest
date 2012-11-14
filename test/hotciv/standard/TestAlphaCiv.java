@@ -262,7 +262,7 @@ public class TestAlphaCiv {
 	}
 
 	@Test
-	public void buySettler() {
+	public void makeSettler() {
 		City c = game.getCityAt(new Position(1, 1));
 		game.changeProductionInCityAt(new Position (1, 1), GameConstants.SETTLER);
 		assertEquals("The production in city1_1 is settlers", GameConstants.SETTLER, c.getProduction());
@@ -271,7 +271,11 @@ public class TestAlphaCiv {
 				for (int i = 0; i < 12; i++) {
 					game.endOfTurn();
 				} 
+<<<<<<< HEAD
 
+=======
+		
+>>>>>>> ngoet
 		Unit u1 = game.getUnitAt(new Position (1, 1));
 		assertNotNull("There is a unit at position (1, 1)", u1);
 		assertEquals("There should be a settler at (1, 1)", GameConstants.SETTLER, u1);
