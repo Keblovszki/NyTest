@@ -271,10 +271,7 @@ public class TestAlphaCiv {
 				for (int i = 0; i < 12; i++) {
 					game.endOfTurn();
 				} 
-		
-<<<<<<< HEAD
-		assertEquals("u1 has won", u1, game.getUnitAt(new Position(5, 6)));
-=======
+
 		Unit u1 = game.getUnitAt(new Position (1, 1));
 		assertNotNull("There is a unit at position (1, 1)", u1);
 		assertEquals("There should be a settler at (1, 1)", GameConstants.SETTLER, u1);
@@ -299,7 +296,6 @@ public class TestAlphaCiv {
 		assertNotNull("There is a unit at position (0, 2)", u3);
 		assertEquals("There should be a settler at (0, 2)", GameConstants.SETTLER, u3);
 		assertNull("This spot should be null", game.getUnitAt(new Position (0, 1))); 
->>>>>>> Attack og production test
 	}
 	
 	@Test
